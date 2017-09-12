@@ -9,9 +9,12 @@
 - Usage: Appareil électrique
 
     [VAR1] IP:PORT 
+    
     [VAR2] API key (hash du mot de passe)
+    
     [VAR3] numéro de station
-
+    
+![OsPi](http://www.e-nef.com/domoticz/new_device2.jpg "New device")
 - requête de mise à jour: http://localhost/script/?exec=ospi.php&ip=[VAR1]&API=[VAR2]&zone_number=[VAR3]&action=status
 
 - chemin XPATH: /root/status
