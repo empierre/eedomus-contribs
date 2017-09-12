@@ -3,6 +3,8 @@
 ## rajouter le script ospi.php
 
 ## créer un actionneur HTTP avec les paramètres
+![OsPi](http://www.e-nef.com/domoticz/list_device.jpg "New device")
+
 ![OsPi](http://www.e-nef.com/domoticz/new_device.jpg "New device")
 - changer l'image
 - titre: Opensprinkler - Zone d'irrigation
