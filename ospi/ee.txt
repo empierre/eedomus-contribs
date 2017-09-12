@@ -1,0 +1,31 @@
+Opensprinkler - Zone d'irrigation
+Usage: Appareil électrique
+[VAR1] IP
+[VAR2] API key
+[VAR3] station id
+
+
+Auto	Auto				http://localhost/script/?exec=greeniq.php&username=[VAR1]&password=[VAR2]&zone_number=[VAR3]&action=auto
+Off	Off				http://localhost/script/?exec=greeniq.php&username=[VAR1]&password=[VAR2]&zone_number=[VAR3]&action=stop
+On	Arroser 30 minutes		http://localhost/script/?exec=greeniq.php&username=[VAR1]&password=[VAR2]&zone_number=[VAR3]&action=start&duration=30
+
+http://localhost/script/?exec=greeniq.php&username=[VAR1]&password=[VAR2]&zone_number=[VAR3]&action=status
+chemin XPATH /root/status
+fréquence requête 10mn
+Convertir JSON XML
+
+http://localhost/script/?exec=ospi.php&ip=[VAR1]&API=[VAR2]&zone_number=[VAR3]&action=start&duration=30
+i
+https://nef.dtdns.net/ospi/jc?pw=ca99201d60afede745ff263512c10fc0
+{"devt":1505238828,"nbrd":1,"en":1,"rd":0,"rs":0,"rdst":0,"loc":"pws:ILEDEFRA58","wtkey":"9477400ac3a85665","sunrise":443,"sunset":1210,"eip":1515860174,"lwc":1505237854,"lswc":1505237854,"lrun":[5,1,300,1505201341],"sbits":[0,0],"ps":[[0,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0]],"wto":{"h":100,"t":100,"r":100,"bh":70,"bt":66.2,"br":0},"ifkey":"43871955d"}
+https://nef.dtdns.net/ospi/jo?pw=ca99201d60afede745ff263512c10fc0
+https://nef.dtdns.net/ospi/jn?pw=ca99201d60afede745ff263512c10fc0
+https://nef.dtdns.net/ospi/js?pw=ca99201d60afede745ff263512c10fc0 => open stations {"sn":[0,0,0,0,0,0,0,0],"nstations":8}
+https://nef.dtdns.net/ospi/jp?pw=ca99201d60afede745ff263512c10fc0
+https://nef.dtdns.net/ospi/jl?pw=ca99201d60afede745ff263512c10fc0&hist=1
+
+cm: manual run
+ON: /cm?pw=xxx&​sid=xxx​&​en=1​&​t=  en s 
+OFF: /cm?pw=xxx&​sid=xxx​&​en=0
+AUTO: rien
+remontée état
