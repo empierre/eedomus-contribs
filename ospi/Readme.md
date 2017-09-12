@@ -3,7 +3,7 @@
 ## rajouter le script ospi.php
 
 ## créer un actionneur HTTP avec les paramètres
-
+(http://www.e-nef.com/domoticz/new_device.jpg "MyDomoAtHome ISS")
 - changer l'image
 - titre: Opensprinkler - Zone d'irrigation
 - Usage: Appareil électrique
