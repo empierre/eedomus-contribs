@@ -3,7 +3,7 @@
 ## rajouter le script ospi.php
 
 ## créer un actionneur HTTP avec les paramètres
-![MyDomoAtHome](http://www.e-nef.com/domoticz/new_device.jpg "MyDomoAtHome ISS")
+![OsPi](http://www.e-nef.com/domoticz/new_device.jpg "New device")
 - changer l'image
 - titre: Opensprinkler - Zone d'irrigation
 - Usage: Appareil électrique
@@ -21,6 +21,8 @@
 - Convertir JSON XML sélectionné
 
 ## dans l'onglet valeur:
+![OsPi](http://www.e-nef.com/domoticz/device_actions.jpg "New device")
+
 
     Auto	Auto				http://localhost/script/?exec=ospi.php&ip=[VAR1]&API=[VAR2]&zone_number=[VAR3]&action=auto
     Off	Off				http://localhost/script/?exec=ospi.php&ip=[VAR1]&API=[VAR2]&zone_number=[VAR3]&action=stop
