@@ -21,11 +21,12 @@
 - Convertir JSON XML sélectionné
 
 ## dans l'onglet valeur:
-![OsPi](http://www.e-nef.com/domoticz/device_actions.jpg "New device")
+![OsPi](http://www.e-nef.com/domoticz/new_device_actions.jpg "New device")
 
 
     Auto	Auto				http://localhost/script/?exec=ospi.php&ip=[VAR1]&API=[VAR2]&zone_number=[VAR3]&action=auto
     Off	Off				http://localhost/script/?exec=ospi.php&ip=[VAR1]&API=[VAR2]&zone_number=[VAR3]&action=stop
     On	Arroser 30 minutes		http://localhost/script/?exec=ospi.php&ip=[VAR1]&API=[VAR2]&zone_number=[VAR3]&action=start&duration=30
 
-
+#Usage
+![OsPi](http://www.e-nef.com/domoticz/device_actions.jpg "New device")
