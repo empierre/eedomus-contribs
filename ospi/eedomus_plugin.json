@@ -1,36 +1,46 @@
 {
-"plugin_id":"Opensprinkler",
-"name_fr": "Opensprinkler",
-"icon":"ospi.png",
-"version":"1.0",
-"creation_date":"2017-09-12",
-"modification_date":"2017-09-13",
-"author":"epierre",
-"description_fr":"Gestion de l'arrosage jardin des stations Opensprinkler",
-"description_en":"Watering management of Opensprinkler stations",
+	"plugin_id":"Opensprinkler",
+	"name_fr": "Opensprinkler",
+	"icon":"ospi.png",
+	"version":"1.0",
+	"creation_date":"2017-09-12",
+	"modification_date":"2017-09-22",
+	"author":"<a href='https://github.com/empierre/eedomus/tree/master/ospi' target='_blank'>epierre<img src='/img/external.png'",
+	"description_fr":"Gestion de l'arrosage jardin des stations Opensprinkler",
+	"description_en":"Watering management of Opensprinkler stations",
+	"description_es": "",
+        "description_it": "",
+        "description_de": "",
+	"forum_link": "http://forum.eedomus.com/viewtopic.php?f=16&t=5873",
 "parameters":
 [
 ],
 "scripts":
 [{
-"name":"ospi.php"
+	"name":"ospi.php"
 }],
 "devices":
-[{
-"device_id":"Opensprinkler",
-"module_id":"51",
-"type":"http",
-"name_fr":"Opensprinkler - Zone d'irrigation",
-"icon":"ospi.png",
-"utilisation_id":"35", 
-"parameters":{
-"value_type":"text",
-"ignore_errors":3,
-"RAW_URL":"http://localhost/script/?exec=ospi.php&ip=[VAR1]&API=[VAR2]&zone_number=[VAR3]&action=status",
-"RAW_XPATH":"/root/status",
-"POLLING":"10"
-}
-
-}]
+	[{
+	"device_id":"Opensprinkler",
+	"module_id":"51",
+	"type":"http",
+	"name_fr":"Opensprinkler - Zone d'irrigation",
+	"name_en":"Opensprinkler - Irrigation zone",
+	"icon":"ospi.png",
+	"utilisation_id":"35", 
+	"parameters":{
+		"value_type":"text",
+		"ignore_errors":3,
+		"RAW_URL":"http://localhost/script/?exec=ospi.php&ip=[VAR1]&API=[VAR2]&zone_number=[VAR3]&action=status",
+		"RAW_XPATH":"/root/status",
+		"POLLING":"10"
+	},
+	"values":
+                        [
+                                { "value": 0, "description": "Auto", "icon": "ospi.png", "http_url": "http://localhost/script/?exec=ospi.php&ip=[VAR1]&API=[VAR2]&zone_number=[VAR3]&action=auto", "http_type": "GET",  "http_params": "" },
+                                { "value": "Off", "description": "Off", "icon": "default_off.png", "http_url": "http://localhost/script/?exec=ospi.php&ip=[VAR1]&API=[VAR2]&zone_number=[VAR3]&action=stop", "http_type": "GET",  "http_params": "" },
+                                { "value": "On", "description": "Arroser 30mn", "icon": "plant_hum.png", "http_url": "http://localhost/script/?exec=ospi.php&ip=[VAR1]&API=[VAR2]&zone_number=[VAR3]&action=start&duration=30", "http_type": "GET",  "http_params": "" }
+			]
+	}]
 
 }
