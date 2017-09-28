@@ -1,0 +1,47 @@
+{
+	"plugin_id":"Volumio 1.5",
+	"name_fr": "Volumio 1.5",
+	"icon":"volumio.png",
+	"version":"1.0",
+	"creation_date":"2017-09-22",
+	"modification_date":"2017-09-22",
+	"author":"<a href='https://github.com/empierre/eedomus/tree/master/volumio15' target='_blank'>epierre<img src='/img/external.png'",
+	"description_fr":"Gestionnaire de musique Volumio 1.5",
+	"description_en":"Volumio 1.5 music player",
+	"description_es": "",
+        "description_it": "",
+        "description_de": "",
+	"forum_link": "http://forum.eedomus.com/viewtopic.php?f=16&t=5873",
+"parameters":
+[
+],
+"scripts":
+[{
+}],
+"devices":
+	[{
+	"device_id":"Volumio 1.5",
+	"module_id":"51",
+	"type":"http",
+	"name_fr":"Volumio",
+	"name_en":"Volumio",
+	"icon":"volumio.png",
+	"utilisation_id":"35", 
+	"parameters":{
+		"value_type":"text",
+		"ignore_errors":3,
+		"RAW_URL":"http://[VAR1]/_player_engine.php",
+		"RAW_XPATH":"concat(/root/currentsong, /root/state) change('pause', ' - Pause') change('play', ' - Lecture') change('stop', ' - Stop')",
+		"POLLING":"1"
+	},
+	"values":
+                        [
+                                { "value": 0, "description": "Lecture", "icon": "play.png", "http_url": "http://[VAR1]/command/?cmd=play", "http_type": "GET",  "http_params": "" },
+                                { "value": 1, "description": "Pause", "icon": "pause.png", "http_url": "http://[VAR1]/command/?cmd=pause", "http_type": "GET",  "http_params": "" },
+                                { "value": 2, "description": "Suivant", "icon": "audio_next.png", "http_url": "http://[VAR1]/command/?cmd=next", "http_type": "GET",  "http_params": "" },
+                                { "value": 3, "description": "Exemple favoris", "icon": "music.png", "http_url": "http://[VAR1]/favorite/France%20Info", "http_type": "GET",  "http_params": "" },
+                                { "value": 4, "description": "Stop", "icon": "audio_stop.png", "http_url": "http://[VAR1]/command/?cmd=stop", "http_type": "GET",  "http_params": "" }
+			]
+	}]
+
+}
