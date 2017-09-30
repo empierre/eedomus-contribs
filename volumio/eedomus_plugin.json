@@ -1,47 +1,52 @@
 {
-	"plugin_id":"Volumio 1.5",
+	"plugin_id":"volumio",
 	"name_fr": "Volumio 1.5",
 	"icon":"volumio.png",
 	"version":"1.0",
 	"creation_date":"2017-09-22",
 	"modification_date":"2017-09-22",
-	"author":"<a href='https://github.com/empierre/eedomus/tree/master/volumio15' target='_blank'>epierre<img src='/img/external.png'",
-	"description_fr":"Gestionnaire de musique Volumio 1.5",
+	"author":"<a href='https://github.com/empierre/eedomus' target='_blank'>epierre <img src='/img/external.png'></a>",
+	"description_fr":"Gestionnaire de musique <a href='https://volumio.org/' target='_blank'>Volumio 1.5</a>",
 	"description_en":"Volumio 1.5 music player",
 	"description_es": "",
-        "description_it": "",
-        "description_de": "",
-	"forum_link": "http://forum.eedomus.com/viewtopic.php?f=16&t=5873",
+	"description_it": "",
+	"description_de": "",
+	"forum_link": "",
 "parameters":
 [
+	{
+		"parameter": "IP", 
+		"description": "Adresse IP",
+		"xtype": "textfield",
+		"default_value": "",
+		"field": "width:130, allowBlank:false, maskRe:/[0-9.]/, regex:/^(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9])\\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[0-9])$/,  regexText:'Adresse IP invalide [0-255].[0-255].[0-255].[0-255]'"
+	}
 ],
-"scripts":
-[{
-}],
 "devices":
 	[{
-	"device_id":"Volumio 1.5",
-	"module_id":"51",
+	"device_id":"volumio",
+	"module_id":"41",
 	"type":"http",
 	"name_fr":"Volumio",
 	"name_en":"Volumio",
 	"icon":"volumio.png",
-	"utilisation_id":"35", 
+	"utilisation_id":"43", 
 	"parameters":{
-		"value_type":"text",
+		"VAR1": "plugin.parameters.IP",
+		"value_type":"list",
 		"ignore_errors":3,
 		"RAW_URL":"http://[VAR1]/_player_engine.php",
 		"RAW_XPATH":"concat(/root/currentsong, /root/state) change('pause', ' - Pause') change('play', ' - Lecture') change('stop', ' - Stop')",
 		"POLLING":"1"
 	},
 	"values":
-                        [
-                                { "value": 0, "description": "Lecture", "icon": "play.png", "http_url": "http://[VAR1]/command/?cmd=play", "http_type": "GET",  "http_params": "" },
-                                { "value": 1, "description": "Pause", "icon": "pause.png", "http_url": "http://[VAR1]/command/?cmd=pause", "http_type": "GET",  "http_params": "" },
-                                { "value": 2, "description": "Suivant", "icon": "audio_next.png", "http_url": "http://[VAR1]/command/?cmd=next", "http_type": "GET",  "http_params": "" },
-                                { "value": 3, "description": "Exemple favoris", "icon": "music.png", "http_url": "http://[VAR1]/favorite/France%20Info", "http_type": "GET",  "http_params": "" },
-                                { "value": 4, "description": "Stop", "icon": "audio_stop.png", "http_url": "http://[VAR1]/command/?cmd=stop", "http_type": "GET",  "http_params": "" }
-			]
+	[
+		{ "value": 0, "description": "Lecture", "icon": "play.png", "http_url": "http://[VAR1]", "http_type": "GET",  "http_params": "/command/?cmd=play" },
+		{ "value": 1, "description": "Pause", "icon": "pause.png", "http_url": "http://[VAR1]", "http_type": "GET",  "http_params": "/command/?cmd=pause" },
+		{ "value": 2, "description": "Suivant", "icon": "audio_next.png", "http_url": "http://[VAR1]", "http_type": "GET",  "http_params": "/command/?cmd=next" },
+		{ "value": 3, "description": "Exemple favoris", "icon": "music.png", "http_url": "http://[VAR1]", "http_type": "GET",  "http_params": "/favorite/France%20Info" },
+		{ "value": 4, "description": "Stop", "icon": "audio_stop.png", "http_url": "http://[VAR1]", "http_type": "GET",  "http_params": "/command/?cmd=stop" }
+	]
 	}]
 
 }
