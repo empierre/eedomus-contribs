@@ -1,46 +1,74 @@
 {
 	"plugin_id":"Opensprinkler",
-	"name_fr": "Opensprinkler",
+	"name_fr": "OpenSprinkler",
 	"icon":"ospi.png",
 	"version":"1.0",
 	"creation_date":"2017-09-12",
 	"modification_date":"2017-09-22",
-	"author":"<a href='https://github.com/empierre/eedomus/tree/master/ospi' target='_blank'>epierre<img src='/img/external.png'",
-	"description_fr":"Gestion de l'arrosage jardin des stations Opensprinkler",
+	"author":"<a href='https://github.com/empierre/eedomus/tree/master/ospi' target='_blank'>epierre <img src='/img/external.png'></a>",
+	"description_fr":"Gestion de l'arrosage de jardin avec les stations <a href='https://opensprinkler.com/' target='_blank'>OpenSprinkler</a>",
 	"description_en":"Watering management of Opensprinkler stations",
 	"description_es": "",
-        "description_it": "",
-        "description_de": "",
+	"description_it": "",
+	"description_de": "",
 	"forum_link": "http://forum.eedomus.com/viewtopic.php?f=16&t=5873",
 "parameters":
 [
+	{
+		"parameter": "IP", 
+		"description": "Adresse IP:Port OpenSprinkler<br><i>Ex. 192.168.0.21:8080</i>",
+		"xtype": "textfield",
+		"default_value": "",
+		"field": "width:130, allowBlank:false"
+   },
+	 {
+      "parameter": "API", 
+      "description": "Clé API (Hash du mot de passe)",
+      "xtype": "textfield",
+			"default_value": "",
+			"field": "width:250, allowBlank:false"
+    },
+	 {
+      "parameter": "ZONE", 
+      "description": "Numéro de station",
+      "xtype": "numberfield",
+			"default_value": "",
+			"field": "minValue:0, allowDecimals:false, width:50, allowBlank:false"
+    }
 ],
 "scripts":
-[{
-	"name":"ospi.php"
-}],
+[
+	{
+		"name": "ospi.php"
+	}
+],
 "devices":
-	[{
-	"device_id":"Opensprinkler",
-	"module_id":"51",
+	[
+	{
+	"device_id":"opensprinkler",
+	"module_id": "41",
 	"type":"http",
 	"name_fr":"Opensprinkler - Zone d'irrigation",
 	"name_en":"Opensprinkler - Irrigation zone",
 	"icon":"ospi.png",
-	"utilisation_id":"35", 
-	"parameters":{
-		"value_type":"text",
+	"utilisation_id": "2", 
+	"parameters":
+	{
+		"VAR1": "plugin.parameters.IP",
+		"VAR2": "plugin.parameters.API",
+		"VAR3": "plugin.parameters.ZONE",
+		"value_type":"list",
 		"ignore_errors":3,
 		"RAW_URL":"http://localhost/script/?exec=ospi.php&ip=[VAR1]&API=[VAR2]&zone_number=[VAR3]&action=status",
 		"RAW_XPATH":"/root/status",
 		"POLLING":"10"
 	},
 	"values":
-                        [
-                                { "value": 0, "description": "Auto", "icon": "ospi.png", "http_url": "http://localhost/script/?exec=ospi.php&ip=[VAR1]&API=[VAR2]&zone_number=[VAR3]&action=auto", "http_type": "GET",  "http_params": "" },
-                                { "value": "Off", "description": "Off", "icon": "default_off.png", "http_url": "http://localhost/script/?exec=ospi.php&ip=[VAR1]&API=[VAR2]&zone_number=[VAR3]&action=stop", "http_type": "GET",  "http_params": "" },
-                                { "value": "On", "description": "Arroser 30mn", "icon": "plant_hum.png", "http_url": "http://localhost/script/?exec=ospi.php&ip=[VAR1]&API=[VAR2]&zone_number=[VAR3]&action=start&duration=30", "http_type": "GET",  "http_params": "" }
-			]
-	}]
-
+	[
+		{ "value": 0, "description": "Auto", "icon": "ospi.png", "http_url": "http://localhost/script/?exec=ospi.php&ip=[VAR1]&API=[VAR2]&zone_number=[VAR3]", "http_type": "GET",  "http_params": "&action=auto" },
+		{ "value": "Off", "description": "Off", "icon": "default_off.png", "http_url": "http://localhost/script/?exec=ospi.php&ip=[VAR1]&API=[VAR2]&zone_number=[VAR3]", "http_type": "GET",  "http_params": "&action=stop" },
+		{ "value": "On", "description": "Arroser 30mn", "icon": "plant_hum.png", "http_url": "http://localhost/script/?exec=ospi.php&ip=[VAR1]&API=[VAR2]&zone_number=[VAR3]", "http_type": "GET",  "http_params": "&action=start&duration=30" }
+		]
+		}
+	]
 }
