@@ -7,11 +7,11 @@
 	"modification_date":"2017-09-22",
 	"author":"<a href='https://github.com/empierre/eedomus' target='_blank'>epierre <img src='/img/external.png'></a>",
 	"description_fr":"Gestionnaire de musique <a href='https://volumio.org/' target='_blank'>Volumio 1.5</a>",
-	"description_en":"Volumio 1.5 music player",
+	"description_en":"<a href='https://volumio.org/' target='_blank'>Volumio 1.5</a> music player",
 	"description_es": "",
 	"description_it": "",
 	"description_de": "",
-	"forum_link": "",
+	"forum_link": "http://forum.eedomus.com/viewtopic.php?f=16&t=5874",
 "parameters":
 [
 	{

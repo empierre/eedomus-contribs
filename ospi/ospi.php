@@ -1,10 +1,8 @@
 <?php
 
-
 $GLOBALS['api_key'] = getArg('API');
 $GLOBALS['api_ip'] = getArg('ip');
 $GLOBALS['api_url'] = 'http://'.$api_ip.'/';
-
 
 
 function sdk_activate_irrigation($zone, $minutes)
