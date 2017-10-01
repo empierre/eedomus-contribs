@@ -1,0 +1,88 @@
+{
+	"plugin_id":"volumio2",
+	"name_fr": "Volumio 2",
+	"icon":"volumio.png",
+	"version":"1.0",
+	"creation_date":"2017-10-01",
+	"modification_date":"2017-10-01",
+	"author":"<a href='https://github.com/empierre/eedomus' target='_blank'>epierre <img src='/img/external.png'></a>",
+	"description_fr":"Gestionnaire de musique <a href='https://volumio.org/' target='_blank'>Volumio 2</a>",
+	"description_en":"<a href='https://volumio.org/' target='_blank'>Volumio 2</a> music player",
+	"description_es": "",
+	"description_it": "",
+	"description_de": "",
+	"forum_link": "http://forum.eedomus.com/viewtopic.php?f=16&t=5874",
+"parameters":
+[
+	{
+		"parameter": "IP", 
+		"description": "Adresse IP",
+		"xtype": "textfield",
+		"default_value": "",
+		"field": "width:130, allowBlank:false, maskRe:/[0-9.]/, regex:/^(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9])\\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[0-9])$/,  regexText:'Adresse IP invalide [0-255].[0-255].[0-255].[0-255]'"
+	}
+],
+"devices":
+	[{
+	"device_id":"volumio2",
+	"module_id":"41",
+	"type":"http",
+	"name_fr":"Volumio 2",
+	"name_en":"Volumio 2",
+	"icon":"volumio.png",
+	"utilisation_id":"43", 
+	"parameters":{
+		"VAR1": "plugin.parameters.IP",
+		"value_type":"list",
+		"ignore_errors":3,
+		"RAW_URL":"http://[VAR1]/api/v1/getstate",
+		"RAW_XPATH":"concat(/root/title, /root/status) change('pause', ' - Pause') change('play', ' - Lecture') change('stop', ' - Stop')",
+		"POLLING":"1"
+	},
+	"values":
+	[
+		{ "value": 0, "description": "Lecture", "icon": "play.png", "http_url": "http://[VAR1]", "http_type": "GET",  "http_params": "/api/v1/commands/?cmd=play" },
+		{ "value": 1, "description": "Pause", "icon": "pause.png", "http_url": "http://[VAR1]", "http_type": "GET",  "http_params": "/api/v1/commands/?cmd=pause" },
+		{ "value": 2, "description": "Suivant", "icon": "audio_next.png", "http_url": "http://[VAR1]", "http_type": "GET",  "http_params": "/api/v1/commands/?cmd=next" },
+		{ "value": 3, "description": "Exemple favoris", "icon": "music.png", "http_url": "http://[VAR1]", "http_type": "GET",  "http_params": "/favorite/France%20Info" },
+		{ "value": 4, "description": "Stop", "icon": "audio_stop.png", "http_url": "http://[VAR1]", "http_type": "GET",  "http_params": "/api/v1/commands/?cmd=stop" }
+	]
+	},
+	{
+	"device_id":"volumio2volume",
+	"parent_id": "volumio2",
+	"module_id":"41",
+	"type":"http",
+	"name_fr":"Volumio 2 Volume",
+	"name_en":"Volumio 2 Volume",
+	"icon":"volume.png",
+	"utilisation_id":"43", 
+	"parameters":{
+		"VAR1": "plugin.parameters.IP",
+		"value_type":"list",
+		"ignore_errors":3,
+		"RAW_URL":"http://[VAR1]/api/v1/getstate",
+		"RAW_XPATH":"/root/status change('pause', 'Pause') change('play', 'Lecture') change('stop', 'Stop')",
+		"POLLING":"1"
+	},
+	"values":
+	[
+		{ "value": 0, "description": "Mute", "icon": "forbidden.png", "http_url": "http://[VAR1]", "http_type": "GET",  "http_params": "/api/v1/commands/?cmd=volume&volume=mute" },
+		{ "value": 1, "description": "Unmute", "icon": "play.png", "http_url": "http://[VAR1]", "http_type": "GET",  "http_params": "/api/v1/commands/?cmd=volume&volume=unmute" },
+		{ "value": 2, "description": "Plus", "icon": "plus.png", "http_url": "http://[VAR1]", "http_type": "GET",  "http_params": "/api/v1/commands/?cmd=volume&volume=plus" },
+		{ "value": 3, "description": "Moins", "icon": "minus.png", "http_url": "http://[VAR1]", "http_type": "GET",  "http_params": "/api/v1/commands/?cmd=volume&volume=minus" },
+		{ "value": 4, "description": "10%", "icon": "volume.png", "http_url": "http://[VAR1]", "http_type": "GET",  "http_params": "/api/v1/commands/?cmd=volume&volume=10" },
+		{ "value": 5, "description": "20%", "icon": "volume.png", "http_url": "http://[VAR1]", "http_type": "GET",  "http_params": "/api/v1/commands/?cmd=volume&volume=20" },
+		{ "value": 6, "description": "30%", "icon": "volume.png", "http_url": "http://[VAR1]", "http_type": "GET",  "http_params": "/api/v1/commands/?cmd=volume&volume=30" },
+		{ "value": 7, "description": "40%", "icon": "volume.png", "http_url": "http://[VAR1]", "http_type": "GET",  "http_params": "/api/v1/commands/?cmd=volume&volume=40" },
+		{ "value": 8, "description": "50%", "icon": "volume.png", "http_url": "http://[VAR1]", "http_type": "GET",  "http_params": "/api/v1/commands/?cmd=volume&volume=50" },
+		{ "value": 9, "description": "60%", "icon": "volume.png", "http_url": "http://[VAR1]", "http_type": "GET",  "http_params": "/api/v1/commands/?cmd=volume&volume=60" },
+		{ "value": 10, "description": "70%", "icon": "volume.png", "http_url": "http://[VAR1]", "http_type": "GET",  "http_params": "/api/v1/commands/?cmd=volume&volume=70" },
+		{ "value": 11, "description": "80%", "icon": "volume.png", "http_url": "http://[VAR1]", "http_type": "GET",  "http_params": "/api/v1/commands/?cmd=volume&volume=80" },
+		{ "value": 12, "description": "90%", "icon": "volume.png", "http_url": "http://[VAR1]", "http_type": "GET",  "http_params": "/api/v1/commands/?cmd=volume&volume=90" },
+		{ "value": 13, "description": "Max", "icon": "volume.png", "http_url": "http://[VAR1]", "http_type": "GET",  "http_params": "/api/v1/commands/?cmd=volume&volume=100" }
+		
+	]
+	}]
+
+}
