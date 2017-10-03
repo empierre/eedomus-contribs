@@ -37,7 +37,8 @@
 		"ignore_errors":3,
 		"RAW_URL":"http://[VAR1]/api/v1/getstate",
 		"RAW_XPATH":"concat(/root/title, /root/status) change('pause', ' - Pause') change('play', ' - Lecture') change('stop', ' - Stop')",
-		"POLLING":"1"
+		"POLLING":"1",
+		"convert": 1
 	},
 	"values":
 	[
@@ -63,7 +64,8 @@
 		"ignore_errors":3,
 		"RAW_URL":"http://[VAR1]/api/v1/getstate",
 		"RAW_XPATH":"/root/status change('pause', 'Pause') change('play', 'Lecture') change('stop', 'Stop')",
-		"POLLING":"1"
+		"POLLING":"1",
+		"convert": 1
 	},
 	"values":
 	[
