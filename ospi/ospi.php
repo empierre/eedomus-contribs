@@ -23,6 +23,12 @@ function sdk_get_program_state()
   return $response;
 }
 
+function sdk_launch_program($pid) 
+{
+  $response = httpQuery($GLOBALS['api_url'].'mp?pw='.$GLOBALS['api_key'].'&pid='.($pid).'&uwt=0', 'GET', $post);
+  return $response;
+}
+
 function sdk_enable_program($pid) 
 {
   $response = httpQuery($GLOBALS['api_url'].'cp?pw='.$GLOBALS['api_key'].'&pid='.($pid).'&en=1', 'GET', $post);
@@ -77,6 +83,17 @@ switch($action)
     $result = sdk_auto_irrigation($zone_number);
   break;
   
+  case 'programenablelaunch':
+    $program_name = getArg('program_name');
+    $pid = sdk_get_pid($program_name);
+    if($pid==0) {
+        $result = '{"status":false,"msg":"Unknown program ['.$program_name.']"}';
+    } else {
+        $result = sdk_enable_program($pid-1); 
+        $result = sdk_launch_program($pid-1); 
+    }
+  break;		
+		
   case 'programenable':
     $program_name = getArg('program_name');
     $pid = sdk_get_pid($program_name);
