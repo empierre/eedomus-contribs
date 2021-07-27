@@ -1,5 +1,6 @@
 # Interface Eedomus avec Opensprinkler
-
+Compatible avec API 2.1.9
+https://openthings.freshdesk.com/support/solutions/articles/5000716363-api-documents
 ## rajouter le script ospi.php
 
 ## créer un actionneur HTTP avec les paramètres
